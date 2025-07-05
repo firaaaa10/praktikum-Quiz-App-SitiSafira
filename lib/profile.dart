@@ -21,7 +21,7 @@ class Profile extends StatelessWidget {
                 radius: 70,
                 // --- FOTO PROFIL DIUBAH MENJADI ASET LOKAL ---
                 backgroundImage: AssetImage(
-                  'assets/images/6287026617863752703.jpg',
+                  'assets/images/Foto Formal.jpg',
                 ),
               ),
               SizedBox(height: screenSize.height * 0.03),
@@ -34,7 +34,7 @@ class Profile extends StatelessWidget {
                 ),
               ),
               const Text(
-                'Wisnu Setia Budi',
+                'Siti Safira',
                 style: TextStyle(
                   fontSize: 26,
                   color: Colors.white,
@@ -52,7 +52,7 @@ class Profile extends StatelessWidget {
                 ),
               ),
               const Text(
-                '202210010293',
+                '2210010336',
                 style: TextStyle(
                   fontSize: 26,
                   color: Colors.white,
@@ -65,7 +65,7 @@ class Profile extends StatelessWidget {
                 context,
                 icon: Icons.email,
                 label: 'Email',
-                value: 'wisnusetiabudi09@gmail.com',
+                value: 'ssitisafira16@gmail.com',
                 screenSize: screenSize,
               ),
               SizedBox(height: screenSize.height * 0.015),
@@ -73,7 +73,7 @@ class Profile extends StatelessWidget {
                 context,
                 icon: Icons.phone,
                 label: 'Telepon',
-                value: '+62 821 5831 0620',
+                value: '+62 819-9527-5201',
                 screenSize: screenSize,
               ),
               SizedBox(height: screenSize.height * 0.015),
@@ -89,7 +89,7 @@ class Profile extends StatelessWidget {
                 context,
                 icon: Icons.calendar_today,
                 label: 'Tanggal Lahir',
-                value: '23 Juni 2004',
+                value: '16 Januari 2004',
                 screenSize: screenSize,
               ),
               const SizedBox(height: 18),

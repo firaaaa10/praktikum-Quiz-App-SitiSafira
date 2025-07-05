@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/datas/question.dart';
+import 'package:quiz_app/questions_screen.dart';
 import 'package:quiz_app/home_screen.dart';
-import 'package:quiz_app/profile.dart';
-import 'package:quiz_app/quetions_screen.dart';
+import 'package:quiz_app/datas/questions.dart';
 import 'package:quiz_app/result_screen.dart';
+import 'package:quiz_app/profile.dart'; // Import the profile.dart file
 
 class Quiz extends StatefulWidget {
-  const Quiz({super.key});
-
   @override
   State<Quiz> createState() {
     return _QuizState();
@@ -15,56 +13,67 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  List<String> _selectedAnswers = [];
-  var _activeScreen = 'start-screen';
+  var activeScreen = 'start-screen'; // Menyimpan layar aktif
+  List<String> selectedAnswer = [];
 
-  void _switchScreen() {
+  // Fungsi untuk mengubah layar dari 'start-screen' ke 'questions-screen'
+  void switchScreen() {
     setState(() {
-      _activeScreen = 'questions-screen';
+      selectedAnswer = []; // Clear selected answers when starting a new quiz
+      activeScreen = 'questions-screen';
     });
   }
 
-  void _chooseAnswer(String answer) {
-    _selectedAnswers.add(answer);
+  // Fungsi untuk memilih jawaban dan melanjutkan ke layar hasil jika semua pertanyaan telah dijawab
+  void chooseAnswer(String answer) {
+    selectedAnswer.add(answer);
 
-    if (_selectedAnswers.length == questions.length) {
+    if (selectedAnswer.length == questions.length) {
       setState(() {
-        _activeScreen = 'results-screen';
+        activeScreen = 'result-screen';
       });
     }
   }
 
-  void restartQuiz() {
+  // Fungsi untuk mereset kuis
+  void restartQuiz() { // Mengubah nama fungsi menjadi restartQuiz (huruf kecil di awal)
     setState(() {
-      _selectedAnswers = [];
-      _activeScreen = 'start-screen';
+      selectedAnswer = [];
+      activeScreen = 'questions-screen'; // Memastikan kembali ke layar pertanyaan
     });
   }
 
   void profileScreen() {
     setState(() {
-      _activeScreen = 'profile-screen';
+      // Clear selected answers when navigating to profile screen
+      selectedAnswer = [];
+      activeScreen = 'profile-screen';
     });
   }
 
   @override
   Widget build(context) {
-    Widget screenWidget = HomeScreen(_switchScreen, profile: profileScreen);
+    Widget screenWidget = HomeScreen(
+      switchScreen, // Positional argument for startQuiz
+      profile: profileScreen, // Named argument for profile
+    );
 
-    if (_activeScreen == 'questions-screen') {
-      screenWidget = QuestionsScreen(onSelectAnswer: _chooseAnswer);
+    if (activeScreen == 'questions-screen') {
+      screenWidget = QuestionsScreen(
+        onSelectAnswer: chooseAnswer,
+      ); // Tampilan pertanyaan
     }
 
-    if (_activeScreen == 'results-screen') {
+    if (activeScreen == 'result-screen') {
       screenWidget = ResultScreen(
-        choosenAnswers: _selectedAnswers,
-        onRestart: restartQuiz,
+        choosenAnswers: selectedAnswer,
+        onRestart: restartQuiz, // Menggunakan nama fungsi yang sudah diperbaiki
       );
     }
 
-    if (_activeScreen == 'profile-screen') {
-      screenWidget = Profile(onRestart: restartQuiz);
-    }
+  if (activeScreen == 'profile-screen'){
+    screenWidget = Profile(onRestart: restartQuiz); // Pass onRestart to Profile
+  }
 
     return MaterialApp(
       home: Scaffold(
@@ -72,14 +81,14 @@ class _QuizState extends State<Quiz> {
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                Color.fromARGB(255, 78, 13, 151),
-                Color.fromARGB(255, 107, 15, 168),
-              ],
+                Colors.deepPurple,
+                Color.fromARGB(255, 148, 59, 219)
+              ], // Mengubah warna kedua agar ada gradien
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-            ),
+            ), // LinearGradient
           ),
-          child: screenWidget,
+          child: screenWidget, // Menampilkan widget berdasarkan activeScreen
         ),
       ),
     );
