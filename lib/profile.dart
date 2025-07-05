@@ -20,7 +20,9 @@ class Profile extends StatelessWidget {
               const CircleAvatar(
                 radius: 70,
                 // --- FOTO PROFIL DIUBAH MENJADI ASET LOKAL ---
-                backgroundImage: AssetImage('assets/images/cihuy.jpg'),
+                backgroundImage: AssetImage(
+                  'assets/images/6287026617863752703.jpg',
+                ),
               ),
               SizedBox(height: screenSize.height * 0.03),
               const Text(
@@ -32,7 +34,7 @@ class Profile extends StatelessWidget {
                 ),
               ),
               const Text(
-                'ATMA FATHUL HADI',
+                'Wisnu Setia Budi',
                 style: TextStyle(
                   fontSize: 26,
                   color: Colors.white,
@@ -50,7 +52,7 @@ class Profile extends StatelessWidget {
                 ),
               ),
               const Text(
-                '202210010425',
+                '202210010293',
                 style: TextStyle(
                   fontSize: 26,
                   color: Colors.white,
@@ -63,7 +65,7 @@ class Profile extends StatelessWidget {
                 context,
                 icon: Icons.email,
                 label: 'Email',
-                value: 'Atmafathulhadi17@gmail.com',
+                value: 'wisnusetiabudi09@gmail.com',
                 screenSize: screenSize,
               ),
               SizedBox(height: screenSize.height * 0.015),
@@ -71,7 +73,7 @@ class Profile extends StatelessWidget {
                 context,
                 icon: Icons.phone,
                 label: 'Telepon',
-                value: '+62 858 4996 0781',
+                value: '+62 821 5831 0620',
                 screenSize: screenSize,
               ),
               SizedBox(height: screenSize.height * 0.015),
@@ -87,7 +89,7 @@ class Profile extends StatelessWidget {
                 context,
                 icon: Icons.calendar_today,
                 label: 'Tanggal Lahir',
-                value: '17 April 2004',
+                value: '23 Juni 2004',
                 screenSize: screenSize,
               ),
               const SizedBox(height: 18),
