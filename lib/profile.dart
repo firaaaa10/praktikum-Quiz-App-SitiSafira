@@ -19,6 +19,7 @@ class Profile extends StatelessWidget {
             children: [
               const CircleAvatar(
                 radius: 70,
+
                 // --- FOTO PROFIL DIUBAH MENJADI ASET LOKAL ---
                 backgroundImage: AssetImage(
                   'assets/images/6287026617863752703.jpg',
