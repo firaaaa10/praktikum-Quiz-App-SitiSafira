@@ -1,4 +1,4 @@
-import 'package:collection/collection.dart'; // Import ini penting untuk menggunakan .shuffle()
+// Import ini penting untuk menggunakan .shuffle()
 
 // Kelas QuizQuestion untuk merepresentasikan setiap pertanyaan kuis
 class QuizQuestion {
